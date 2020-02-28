@@ -1,7 +1,7 @@
 # Pocsuite3
 基于 Knownsec 404 Team 编写的 [pocsuite3](http://pocsuite.org/) 框架收集整理漏洞相关POC，用于安全测试。
 
-[Pocsuite3源码地址](https://github.com/knownsec/pocsuite3) | [使用说明](https://github.com/knownsec/pocsuite3/blob/master/docs/USAGE.md) | [开发文档](https://github.com/knownsec/pocsuite3/blob/master/docs/CODING.md) | [漏洞分类](seebug.org/category/)
+[Pocsuite3源码地址](https://github.com/knownsec/pocsuite3) | [使用说明](https://github.com/Snowty/pocset/blob/master/docs/USAGE.md) | [开发文档](https://github.com/Snowty/pocset/blob/master/docs/CODING.md) | [漏洞分类](https://www.seebug.org/category/)
 
 # 基本用法
 - Python 3.4+
