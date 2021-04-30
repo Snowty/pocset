@@ -1,7 +1,7 @@
 requests == 2.22.0
 PySocks == 1.7.1
 requests-toolbelt == 0.9.1
-urllib3 == 1.25.6
+urllib3 == 1.25.8
 ajpy==0.0.4
 colorama==0.4.3
 colorlog==4.1.0
